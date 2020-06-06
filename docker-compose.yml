@@ -16,8 +16,8 @@ services:
       args:
         RAILS_ENV: development
     volumes:
-      - .:/app:cached
-      - bundle:/bundle
+      - .:/app
+      - bundle:/usr/local/bundle
     environment:
       EDITOR: vi
       MYSQL_ROOT_PASSWORD: password
