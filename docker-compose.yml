@@ -10,7 +10,11 @@ services:
     volumes:
       - ./data/mysql:/var/lib/mysql
   web: &web
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        RAILS_ENV: development
     volumes:
       - .:/app:cached
       - bundle:/bundle
