@@ -25,5 +25,5 @@ COPY . $APP_HOME
 EXPOSE 3000
 
 RUN yarn install --check-files
-RUN RAILS_ENV=production bundle exec rails assets:precompile
+RUN if ["${RAILS_ENV}" = "production"]; then bundle exec rails assets:precompile; fi
 
