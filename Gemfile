@@ -46,7 +46,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0'
 
   gem 'spring-commands-rspec'
+
+  gem "factory_bot_rails"
 end
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
