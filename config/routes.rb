@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   require Rails.root.join('lib', 'subdomain.rb')
 
-  constraints Subdomain do # サブドメインが指定されていた場合に以下のルーティングが利用される
+  constraints subdomain: 'app' do
+    # テナント作成用
+    # resources :tenant, only: [:new, :create]
 
-    # サブドメインが「app」のときのルーティング
-    constraints subdomain: 'app' do
-    end
-
+    get 'login' => 'sessions#new'
+    post 'login' => 'sessions#create'
+    delete 'logout' => 'sessions#destroy'
   end
+
+  constraints ExcludedSubdomainConstraint do
+    resources :home, only: [:index]
+    resources :video, only: [:index, :new, :create]
+  end
+
+
 end

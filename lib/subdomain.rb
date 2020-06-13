@@ -1,7 +1,6 @@
 # サブドメインルーティングに関する処理
-class Subdomain
+class ExcludedSubdomainConstraint
   def self.matches?(request)
-    # wwwの場合は追加するルーティングにマッチングしないようにしておく
-    request.subdomain.present? && request.subdomain != 'www'
+    request.subdomain.present? && !Apartment::Elevators::Subdomain.excluded_subdomains.include?(request.subdomain)
   end
 end
