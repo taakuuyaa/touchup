@@ -12,10 +12,9 @@ Rails.application.routes.draw do
     delete 'logout' => 'sessions#destroy'
   end
 
-  constraints ExcludedSubdomainConstraint do
-    resources :home, only: [:index]
-    resources :video, only: [:index, :new, :create]
+    constraints ExcludedSubdomainConstraint do
+      root to: "home#index"
+      resources :video, only: [:index, :new, :create]
+    end
   end
-
-
 end
