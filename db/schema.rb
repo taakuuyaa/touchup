@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_144927) do
+ActiveRecord::Schema.define(version: 2020_06_13_082220) do
 
   create_table "tenants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "subdomain", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
+    t.string "remember_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["remember_token"], name: "index_tenants_on_remember_token"
     t.index ["subdomain"], name: "index_tenants_on_subdomain", unique: true
   end
 
