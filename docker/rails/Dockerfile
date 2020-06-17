@@ -22,7 +22,7 @@ WORKDIR $APP_HOME
 
 COPY Gemfile* $APP_HOME/
 RUN bundle install --jobs=4
-COPY ../.. $APP_HOME
+COPY . $APP_HOME
 
 EXPOSE 3000
 
