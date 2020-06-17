@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   constraints ExcludedSubdomainConstraint do
+    root to: 'video#index'
     resources :video, only: [:index, :new, :create]
   end
 

@@ -23,8 +23,7 @@ module SessionsHelper
   end
 
   def login_in?
-    !current_tenant.nil?
-  #  そのテナントにログインして良いか判定がいる
+    !current_tenant.nil? && request.subdomain == current_tenant.subdomain
   end
 
   def destroy

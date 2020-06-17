@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: onstaff_production
-  username: app
+  username: onstaff
   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
