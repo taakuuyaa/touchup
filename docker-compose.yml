@@ -12,7 +12,7 @@ services:
   web: &web
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/rails/Dockerfile
       args:
         RAILS_ENV: development
     volumes:
