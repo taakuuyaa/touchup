@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'sessions/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   require Rails.root.join('lib', 'subdomain.rb')
+  # ELBヘルスチェック用
+  get '/health' => 'health_check#health'
 
   constraints subdomain: 'app' do
     # テナント作成用
