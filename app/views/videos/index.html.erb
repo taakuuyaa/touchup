@@ -1,0 +1,14 @@
+<% provide(:title, "videos") %>
+<h1>動画一覧ページ</h1>
+
+Home Page:
+
+<%= @message %>
+<% Tenant.all.each do |t| %>
+  <p><%= p t.name %></p>
+  <p><%= p t.subdomain %></p>
+<% end %>
+
+
+<%= link_to "作成", movie_add_path %>
+<%= link_to "ログアウト", logout_path, method: :delete %>
