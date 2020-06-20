@@ -5,10 +5,9 @@ class SessionsController < ApplicationController
 
   def create
     tenant = Tenant.find_by(email: params[:session][:email].downcase)
-    # binding.pry
     if tenant && tenant.authenticate(params[:session][:password])
       login_in tenant
-      redirect_to subdomain: tenant.subdomain, :controller => 'video', :action => "index"
+      redirect_to :controller => 'videos', :action => "index"
     else
       # エラーメッセージを表示し、サインインフォームを再描画する。
       flash.now[:error] = 'Invalid email/password combination'
@@ -17,5 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out if login_in?
+    redirect_to login_path
   end
 end
