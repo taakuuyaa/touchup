@@ -3,20 +3,19 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   require Rails.root.join('lib', 'subdomain.rb')
   # ELBヘルスチェック用
-  get '/health' => 'health_check#health'
+  get 'health' => 'health_check#health'
 
-  constraints subdomain: 'app' do
-    # テナント作成用
-    # resources :tenant, only: [:new, :create]
+  constraints ExcludedSubdomainConstraint do
+    root to: redirect('/movie')
 
+    # ログイン関連
     get 'login' => 'sessions#new'
     post 'login' => 'sessions#create'
     delete 'logout' => 'sessions#destroy'
-  end
 
-  constraints ExcludedSubdomainConstraint do
-    root to: 'video#index'
-    resources :video, only: [:index, :new, :create]
+    # 動画
+    get 'movie' => 'videos#index'
+    get 'movie/add' => 'videos#new'
+    post 'movie' => 'videos#create'
   end
-
 end
