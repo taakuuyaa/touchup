@@ -1,10 +1,6 @@
 <% provide(:title, "videos") %>
 <h1>動画作成ページ</h1>
 
-Home Page:
-
-<%= @message %>
-
-
+<%= render partial: 'form' %>
 
 <%= link_to "ログアウト", logout_path, method: :delete %>

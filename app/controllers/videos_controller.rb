@@ -2,13 +2,29 @@ class VideosController < ApplicationController
   before_action :require_login_in!
 
   def index
-    @message = "動画一覧ページ"
+    @video = Video.all
   end
 
   def new
-    @message = "動画作成ページ"
+    @video = Video.new
   end
 
   def create
+
+    @video = Video.save_from_request(video_params)
+
+    if @video.persisted?
+      flash[:success] = "動画を投稿しました。"
+      redirect_to :controller => 'videos', :action => "index"
+    else
+      flash.now[:danger] = "動画の投稿に失敗しました。"
+      render :new
+    end
+  end
+
+  private
+
+  def video_params
+    params.permit(:item_url, :file, :text)
   end
 end

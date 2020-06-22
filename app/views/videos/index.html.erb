@@ -1,12 +1,14 @@
 <% provide(:title, "videos") %>
 <h1>動画一覧ページ</h1>
 
-Home Page:
-
-<%= @message %>
-<% Tenant.all.each do |t| %>
-  <p><%= p t.name %></p>
-  <p><%= p t.subdomain %></p>
+<% @video.each do |v| %>
+  <p><%= v.id %></p>
+  <p><%= v.item_url %></p>
+  <p><%= v.file %></p>
+  <p><%= v.file.size %></p>
+  <p><%= v.capacity %></p>
+  <p><%= v.text %></p>
+  <p><%= v.status %></p>
 <% end %>
 
 
