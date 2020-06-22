@@ -14,7 +14,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 # https://docs.docker.com/compose/rails/
-RUN apt-get update -qq && apt-get install -y build-essential nodejs yarn
+RUN apt-get update -qq && apt-get install -y build-essential nodejs yarn vim
 
 ENV APP_HOME /app
 RUN mkdir $APP_HOME
