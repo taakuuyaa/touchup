@@ -76,3 +76,5 @@ gem 'apartment'
 gem 'carrierwave'
 gem 'fog-aws'
 
+gem 'config'
+
