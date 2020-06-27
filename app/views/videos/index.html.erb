@@ -1,48 +1,26 @@
 <% provide(:title, "動画管理") %>
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item">
-        Home
+<nav class="navbar is-white topNav">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../">
+        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" width="112" height="28">
       </a>
 
-      <a class="navbar-item">
-        Documentation
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
-          </a>
-        </div>
+      <div class="navbar-burger burger" data-target="topNav">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
-          </a>
-        </div>
+    <div id="topNav" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="cover.html">Home</a>
+        <a class="navbar-item" href="landing.html">Landing</a>
+        <a class="navbar-item" href="blog.html">Blog</a>
+        <a class="navbar-item" href="instaAlbum.html">Album</a>
+        <a class="navbar-item" href="kanban[search].html">Kanban</a>
+        <a class="navbar-item" href="search.html">Search</a>
+        <a class="navbar-item" href="tabs.html">Tabs</a>
       </div>
     </div>
   </div>
@@ -56,39 +34,54 @@
           <h1 class="level-item title">動画管理</h1>
         </div>
         <div class="level-right">
-          <button class="level-item button is-primary px-6">＋動画を登録する</button>
+          <%= link_to "＋動画を登録する", movie_add_path, class: 'level-item button is-primary px-6' %>
         </div>
       </div>
       <div class="box">
-        <table class="table is-fullwidth is-striped is-hoverable">
-          <thead>
-          <tr>
-            <th>ID</th>
-            <th>商品URL</th>
-            <th>動画</th>
-            <th>公開状態</th>
-            <th>削除</th>
-          </tr>
-          </thead>
-
-          <tbody>
-          <% @video.each do |v| %>
+        <div class="table-container">
+          <table class="table is-fullwidth is-striped is-hoverable">
+            <thead>
             <tr>
-              <th><%= v.id %></th>
-              <td><a href="<%= v.item_url %>"><p><%= v.item_url %></p></a></td>
-              <td>
-                <video width="200" preload="none" controls
-                       src="<%= v.file %>">
-                </video>
-              </td>
-              <td><%= v.status %></td>
-              <td><%= icon('far', 'times-circle') %></td>
+              <th>ID</th>
+              <th>商品URL</th>
+              <th>動画</th>
+              <th>公開状態</th>
+              <th>削除</th>
             </tr>
-          <% end %>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+            <% @video.each do |v| %>
+              <tr>
+                <th class="is-vcentered"><%= v.id %></th>
+                <td class="is-vcentered"><a href="<%= v.item_url %>"><p><%= v.item_url %></p></a></td>
+                <td class="is-vcentered">
+                  <video width="200" preload="none" controls
+                         src="<%= v.file %>">
+                  </video>
+                </td>
+                <td class="is-vcentered"><%= v.status %></td>
+                <td class="is-vcentered">
+                  <%= link_to '/movie', :method => :delete do %>
+                    <p class="delete"></p>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<script>
+    (function () {
+        var burger = document.querySelector('.burger');
+        var menu = document.querySelector('#' + burger.dataset.target);
+        burger.addEventListener('click', function () {
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    })();
+</script>
