@@ -1,0 +1,31 @@
+<% provide(:title, "ログイン") %>
+
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="columns is-centered">
+        <div class="column is-5">
+          <div class="box">
+            <p class="subtitle is-6 mb-6">ログイン</p>
+            <%= form_for(:session, url: login_path, html: {class: "has-text-left"}) do |f| %>
+
+              <div class="field">
+                <div class="control">
+                  <%= f.email_field :email, class: 'input', placeholder: "メールアドレス" %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <%= f.password_field :password, class: 'input', placeholder: "パスワード" %>
+                </div>
+              </div>
+
+              <%= f.submit "ログインする", class: "button is-block is-primary is-medium is-fullwidth mt-6" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
