@@ -78,3 +78,6 @@ gem 'fog-aws'
 
 gem 'config'
 
+gem "bulma-rails", "~> 0.9.0"
+
+gem 'font-awesome-sass', '~> 5.13.0'
