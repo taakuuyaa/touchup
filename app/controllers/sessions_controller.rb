@@ -1,15 +1,14 @@
 class SessionsController < ApplicationController
+  before_action :set_tenant, only: [:create]
 
   def new
   end
 
   def create
-    tenant = Tenant.find_by(email: params[:session][:email].downcase)
-    if tenant && tenant.authenticate(params[:session][:password])
-      login_in tenant
+    if @tenant.authenticate(session_params[:password])
+      login_in @tenant
       redirect_to :controller => 'videos', :action => "index"
     else
-      # エラーメッセージを表示し、サインインフォームを再描画する。
       flash.now[:error] = 'Invalid email/password combination'
       render 'new'
     end
@@ -18,5 +17,18 @@ class SessionsController < ApplicationController
   def destroy
     log_out if login_in?
     redirect_to login_path
+  end
+
+  private
+
+  def set_tenant
+    @tenant = Tenant.find_by!(email: session_params[:email].downcase)
+  rescue
+    flash.now[:error] = 'Invalid email/password combination'
+    render action: 'new'
+  end
+
+  def session_params
+    params.require(:session).permit(:email, :password)
   end
 end
