@@ -22,6 +22,10 @@ class VideosController < ApplicationController
     end
   end
 
+  def destroy
+    redirect_to :controller => 'videos', :action => "index"
+  end
+
   private
 
   def video_params
