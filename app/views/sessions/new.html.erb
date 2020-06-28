@@ -11,16 +11,17 @@
 
               <div class="field">
                 <div class="control">
-                  <%= f.email_field :email, class: 'input', placeholder: "メールアドレス" %>
+                  <%= f.email_field :email, class: 'input', type: 'email', placeholder: "メールアドレス" %>
                 </div>
               </div>
               <div class="field">
                 <div class="control">
-                  <%= f.password_field :password, class: 'input', placeholder: "パスワード" %>
+                  <%= f.password_field :password, class: 'input', type: 'password', placeholder: "パスワード" %>
                 </div>
               </div>
 
               <%= f.submit "ログインする", class: "button is-block is-primary is-medium is-fullwidth mt-6" %>
+              <p class="help is-danger"><%= flash[:error] if flash[:error].present? %></p>
             <% end %>
           </div>
         </div>

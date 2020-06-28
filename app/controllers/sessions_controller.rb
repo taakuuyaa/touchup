@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
   def set_tenant
     @tenant = Tenant.find_by!(email: session_params[:email].downcase)
   rescue
-    flash.now[:error] = 'Invalid email/password combination'
+    flash.now[:error] = t('sessions.errors.login_error')
     render action: 'new'
   end
 
