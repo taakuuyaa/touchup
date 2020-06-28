@@ -1,0 +1,37 @@
+<nav class="navbar is-white topNav">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../">
+        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" width="112" height="28">
+      </a>
+
+      <div class="navbar-burger burger" data-target="topNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div id="topNav" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="cover.html">Home</a>
+        <a class="navbar-item" href="landing.html">Landing</a>
+        <a class="navbar-item" href="blog.html">Blog</a>
+        <a class="navbar-item" href="instaAlbum.html">Album</a>
+        <a class="navbar-item" href="kanban[search].html">Kanban</a>
+        <a class="navbar-item" href="search.html">Search</a>
+        <a class="navbar-item" href="tabs.html">Tabs</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+    (function () {
+        var burger = document.querySelector('.burger');
+        var menu = document.querySelector('#' + burger.dataset.target);
+        burger.addEventListener('click', function () {
+            burger.classList.toggle('is-active');
+            menu.classList.toggle('is-active');
+        });
+    })();
+</script>
