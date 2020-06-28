@@ -83,3 +83,5 @@ gem "bulma-rails", "~> 0.9.0"
 gem 'font-awesome-sass', '~> 5.13.0'
 
 gem 'jquery-rails'
+
+gem 'rails-i18n', '~> 5.1'
