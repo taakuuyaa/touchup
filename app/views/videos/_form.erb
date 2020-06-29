@@ -1,23 +1,96 @@
-<%= form_with url: movie_path do |f| %>
+<div class="box">
+  <%= form_with url: movie_path do |f| %>
 
-  <p><%= f.label :item_url, '商品ページURL' %></p>
-  <p><%= f.text_field :item_url %></p>
+    <div class="field">
+      <div class="control">
+        <div class="columns">
+          <div class="column is-one-fifth">
+            <%= f.label :item_url, '商品ページURL' %>
+          </div>
+          <div class="column">
+            <%= f.text_field :item_url, class: 'input',type: 'text', placeholder: "商品ページURL" %>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <p><%= f.label :file, '動画データ' %></p>
-  <p><%= f.file_field :file %></p>
+    <hr>
 
-  <p><%= f.label :item_link, '関連アイテムリンク' %></p>
-  <p>
-    <%= f.text_field :item_link %>
-    <%= f.text_field :item_link %>
-  </p>
+    <div class="field">
+      <div class="control">
+        <div class="columns">
+          <div class="column is-one-fifth">
+            <%= f.label :file, '動画データ' %>
+          </div>
+          <div class="column">
+            <%= f.file_field :file, class: 'textarea', type: "file" %>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <p><%= f.label :text, 'テキスト入力' %></p>
-  <p><%= f.text_area :text %></p>
+    <div class="field">
+      <div class="control">
+        <div class="columns">
+          <div class="column is-one-fifth">
+            <%= f.label :text, '関連アイテムリンク' %>
+          </div>
+          <div class="column">
+            <%= f.text_field :item_link, class: 'input',type: 'text', placeholder: "商品名" %>
+          </div>
+          <div class="column">
+            <%= f.text_field :item_link, class: 'input',type: 'text', placeholder: "URL" %>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <%= link_to movie_path do %>
-   <%= button_tag 'キャンセル', type: :button %>
+    <div class="field">
+      <div class="control">
+        <div class="columns">
+          <div class="column is-one-fifth">
+          </div>
+          <div class="column">
+            <%= f.text_field :item_link, class: 'input',type: 'text', placeholder: "商品名" %>
+          </div>
+          <div class="column">
+            <%= f.text_field :item_link, class: 'input',type: 'text', placeholder: "URL" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="field">
+      <div class="control">
+        <div class="columns">
+          <div class="column is-one-fifth">
+            <%= f.label :text, 'テキスト入力' %>
+          </div>
+          <div class="column">
+            <%= f.text_area :text, class: 'textarea', placeholder: "コーディネートのアドバイスや商品の補足テキストを記載しましょう。" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-grouped is-grouped-centered">
+      <div class="control">
+        <%= link_to movie_path do %>
+          <%= button_tag 'キャンセル', type: :button, class: "level-item button is-block is-light px-6" %>
+        <% end %>
+      </div>
+      <div class="control">
+        <%= f.submit "登録する", class: "level-item button is-block is-primary px-6" %>
+      </div>
+    </div>
+
   <% end %>
-  <%= f.submit '登録する' %>
-<% end %>
+
+</div>
+
+
+
+
+
 

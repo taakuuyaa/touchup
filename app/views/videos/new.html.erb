@@ -1,6 +1,22 @@
-<% provide(:title, "videos") %>
-<h1>動画作成ページ</h1>
+<% provide(:title, "動画登録") %>
 
-<%= render partial: 'form' %>
+
+<section class="hero is-fullheight">
+  <div class="hero-head">
+    <div class="container my-6">
+      <div class="breadcrumb mb-0" aria-label="breadcrumbs">
+        <ul>
+          <li><a href="<%= movie_path %>">動画管理</a></li>
+          <li class="is-active"><a href="#" aria-current="page">動画登録</a></li>
+        </ul>
+      </div>
+      <p class="title">動画登録</p>
+
+      <%= render partial: 'form' %>
+    </div>
+  </div>
+</section>
+
+
 
 <%= link_to "ログアウト", logout_path, method: :delete %>

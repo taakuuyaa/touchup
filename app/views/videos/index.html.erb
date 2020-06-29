@@ -35,7 +35,14 @@
                          src="<%= v.file %>">
                   </video>
                 </td>
-                <td class="is-vcentered"><%= v.status %></td>
+                <td class="is-vcentered">
+                  <div class="switchArea">
+                    <input type="checkbox" id="switch1">
+                    <label for="switch1"><span></span></label>
+                    <div id="swImg"></div>
+                  </div>
+                  <%#= v.status %>
+                </td>
                 <td class="is-vcentered">
                   <%= link_to movie_path, :method => :delete do %>
                     <p class="delete"></p>
