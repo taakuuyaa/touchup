@@ -14,3 +14,6 @@ CarrierWave.configure do |config|
       path_style: true
   }
 end
+
+# 日本語ファイル名の許可
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
