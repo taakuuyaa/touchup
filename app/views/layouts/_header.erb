@@ -1,21 +1,35 @@
-<nav class="navbar is-white topNav">
+<nav class="navbar is-white">
   <div class="container">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="../">
-        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" width="112" height="28">
-      </a>
 
-      <div class="navbar-burger burger" data-target="topNav">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger burger" data-target="topNav">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
+
     <div id="topNav" class="navbar-menu">
       <div class="navbar-start">
-        <%= link_to "ログアウト", logout_path, method: :delete, class: 'navbar-item' %>
+        <a class="navbar-item has-text-centered" href="<%= movie_add_path %>" style="display: block">
+          <p style="font-size: 2rem">
+            <%= icon('far', 'play-circle') %>
+          </p>
+          <p>動画登録</p>
+        </a>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div>
+            <!-- TODO: 計算した値に置き換える -->
+            <p class="mb-1">900GB利用可能 / 1,000GB</p>
+            <progress class="progress is-primary navbar-capacity-progress" value="60" max="100">60%</progress>
+          </div>
+        </div>
       </div>
     </div>
+
   </div>
 </nav>
 
