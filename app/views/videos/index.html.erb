@@ -2,7 +2,7 @@
 
 <%= render partial: 'layouts/header' %>
 
-<section class="hero is-fullheight">
+<section class="hero is-fullheight video-index">
   <div class="hero-head">
     <div class="container my-6">
       <div class="level">
@@ -36,12 +36,10 @@
                   </video>
                 </td>
                 <td class="is-vcentered">
-                  <div class="switchArea">
-                    <input type="checkbox" id="switch1">
+                  <div class="switch-area <%= v.published? ? 'is-active' : '' %>">
                     <label for="switch1"><span></span></label>
                     <div id="swImg"></div>
                   </div>
-                  <%#= v.status %>
                 </td>
                 <td class="is-vcentered">
                   <%= link_to movie_path, :method => :delete do %>

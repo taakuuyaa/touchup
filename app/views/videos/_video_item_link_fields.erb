@@ -1,0 +1,12 @@
+<div class="columns nested-fields">
+  <div class="column">
+    <%= f.text_field :name, class: 'input', type: 'text', placeholder: "商品名" %>
+  </div>
+  <div class="column">
+    <%= f.text_field :url, class: 'input', type: 'url', placeholder: "URL" %>
+  </div>
+  <div class="column is-narrow">
+    <%= link_to_remove_association '削除', f, class: 'button is-danger' %>
+  </div>
+</div>
+

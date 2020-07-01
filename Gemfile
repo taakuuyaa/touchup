@@ -85,3 +85,5 @@ gem 'font-awesome-sass', '~> 5.13.0'
 gem 'jquery-rails'
 
 gem 'rails-i18n', '~> 5.1'
+
+gem "cocoon"
