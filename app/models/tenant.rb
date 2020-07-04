@@ -3,6 +3,8 @@ class Tenant < ApplicationRecord
   before_create :create_remember_token
   after_create :create_tenant
 
+  validates :password, length: { in: 6..20 }
+
   def self.new_remember_token
     SecureRandom.urlsafe_base64
   end
