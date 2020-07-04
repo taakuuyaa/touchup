@@ -1,5 +1,24 @@
 ja:
   activerecord:
+    models:
+      tenant: イベント
+      video: 動画
+      video_item_link: 関連アイテムリンク
+    attributes:
+      tenant:
+        name: テナント名
+        subdomain: サブドメイン
+        email: メールアドレス
+        password: パスワード
+      video:
+        item_url: 商品ページURL
+        file: 動画ファイル
+        capacity: 動画容量
+        text: テキスト
+        status: 公開状態
+      video_item_link:
+        name: 商品名
+        url: 商品URL
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
