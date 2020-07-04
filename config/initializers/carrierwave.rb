@@ -4,6 +4,7 @@ require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
   config.storage :fog
+  config.cache_storage = :fog
   config.fog_provider = 'fog/aws'
   config.fog_directory  = "video-upload.#{Rails.env}.onstaff"
   config.fog_credentials = {
