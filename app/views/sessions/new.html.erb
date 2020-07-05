@@ -7,7 +7,7 @@
         <div class="column is-5">
           <div class="box">
             <p class="subtitle is-6 mb-6">ログイン</p>
-            <%= form_for(:session, url: login_path, html: {class: "has-text-left"}) do |f| %>
+            <%= form_for(:session, url: login_path, html: {class: "has-text-left"}, local: true) do |f| %>
 
               <div class="field">
                 <div class="control">
