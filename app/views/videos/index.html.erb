@@ -62,8 +62,12 @@
 
 <script>
     $(function () {
-        $(".switch-area").on("ajax:success", function (event) {
+        const sa = $(".switch-area")
+        sa.on("ajax:success", function (event) {
             $(event.currentTarget).toggleClass("is-active");
+        })
+        sa.on("ajax:error", function () {
+            alert('更新に失敗しました')
         })
     })
 </script>
