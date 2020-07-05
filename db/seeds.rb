@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# すべてのスキーマに実行されてしまう
+# Apartment::Tenant.switch! do
+#   Tenant.create(name: 'hoge', subdomain: 'hoge', password: 'hogehoge', email: 'hoge@hoge.com')
+# end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_153744) do
+ActiveRecord::Schema.define(version: 2020_07_05_091951) do
 
   create_table "tenants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -24,9 +24,17 @@ ActiveRecord::Schema.define(version: 2020_07_04_153744) do
     t.index ["subdomain"], name: "index_tenants_on_subdomain", unique: true
   end
 
+  create_table "video_capacities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "video_id"
+    t.bigint "capacity", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["video_id"], name: "index_video_capacities_on_video_id"
+  end
+
   create_table "video_item_links", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "url"
+    t.string "name", null: false
+    t.string "url", null: false
     t.bigint "video_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_07_04_153744) do
   create_table "videos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "item_url", null: false
     t.string "file", null: false
-    t.bigint "capacity"
     t.text "text"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
