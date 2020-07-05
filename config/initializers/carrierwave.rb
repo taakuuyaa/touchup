@@ -10,26 +10,34 @@ CarrierWave.configure do |config|
       region: 'ap-northeast-1',
       path_style: true
   }
-
-  config.storage :fog
-  config.cache_storage = :fog
   config.fog_provider = 'fog/aws'
 
   case Rails.env
   when 'production'
     config.fog_directory = 'video-upload.production.onstaff'
     # config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/dummy'
+    config.storage :fog
+    config.cache_storage = :fog
 
   when 'staging'
     config.fog_directory = 'video-upload.staging.onstaff'
     # config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/dummy'
+    config.storage :fog
+    config.cache_storage = :fog
 
   when 'development'
     config.fog_directory = 'video-upload.development.onstaff'
     # config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/dev.dummy'
+    config.storage :fog
+    config.cache_storage = :fog
+
+  when 'test'
+    config.storage :file
+    config.cache_storage = :file
 
   else
-    config.fog_directory = nil
+    config.storage :file
+    config.cache_storage = :file
   end
 
 end
