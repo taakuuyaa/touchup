@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_155332) do
+ActiveRecord::Schema.define(version: 2020_07_04_153744) do
 
   create_table "tenants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_155332) do
   create_table "videos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "item_url", null: false
     t.string "file", null: false
-    t.integer "capacity"
+    t.bigint "capacity"
     t.text "text"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
