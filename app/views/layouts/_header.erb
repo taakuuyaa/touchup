@@ -22,9 +22,9 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div>
-            <!-- TODO: 計算した値に置き換える -->
-            <p class="mb-1">900GB利用可能 / 1,000GB</p>
-            <progress class="progress is-primary navbar-capacity-progress" value="60" max="100">60%</progress>
+            <% all_capacity = Video.get_all_capacity %>
+            <p class="mb-1"><%= all_capacity %>GB利用可能 / 1,000GB</p>
+            <progress class="progress is-primary navbar-capacity-progress" value="<%= all_capacity %>" max="1000"></progress>
           </div>
         </div>
       </div>
