@@ -22,7 +22,7 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div>
-            <% all_capacity = Video.get_all_capacity %>
+            <% all_capacity = VideoCapacity.get_monthly_capacity %>
             <p class="mb-1"><%= all_capacity %>GB利用可能 / 1,000GB</p>
             <progress class="progress is-primary navbar-capacity-progress" value="<%= all_capacity %>" max="1000"></progress>
           </div>
