@@ -2,7 +2,7 @@ class VideosController < ApplicationController
   before_action :require_login_in!
 
   def index
-    @video = Video.all
+    @video = Video.all.page(params[:page]).per(10)
   end
 
   def new
