@@ -13,6 +13,7 @@ ja:
       video:
         item_url: 商品ページURL
         file: 動画ファイル
+        video_item_links: 関連アイテムリンク
         capacity: 動画容量
         text: テキスト
         status: 公開状態

@@ -87,3 +87,5 @@ gem 'jquery-rails'
 gem 'rails-i18n', '~> 5.1'
 
 gem "cocoon"
+
+gem 'kaminari'
