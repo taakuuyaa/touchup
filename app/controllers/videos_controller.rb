@@ -10,13 +10,15 @@ class VideosController < ApplicationController
   end
 
   def create
+    @video = Video.new(video_params)
+    @video.video_capacity = VideoCapacity.new(capacity: @video.file.size)
 
-    @video = Video.save_from_request(video_params)
-
-    if @video.persisted?
+    if @video.save
+      # todo videw側表示
       flash[:success] = "動画を投稿しました。"
       redirect_to :controller => 'videos', :action => "index"
     else
+      # todo videw側表示
       flash.now[:danger] = "動画の投稿に失敗しました。"
       render :new
     end
@@ -45,6 +47,6 @@ class VideosController < ApplicationController
   private
 
   def video_params
-    params.permit(:item_url, :file, :text)
+    params.require(:video).permit(:item_url, :file, :file_cache, :text, video_item_links_attributes: [:name, :url, :_destroy])
   end
 end

@@ -6,14 +6,8 @@ class VideoItemLink < ApplicationRecord
   private
 
   def both_inputs?
-    return if name.blank? && url.blank?
-
-    if name.present? && url.blank?
-      errors.add(:url, 'も入力してください')
-    end
-
-    if name.blank? && url.present?
-      errors.add(:name, 'も入力してください')
+    unless name.present? && url.present?
+      errors.add(:name, '関連アイテムリンクは両方入力してください')
     end
   end
 end
