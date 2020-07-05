@@ -23,7 +23,23 @@ class VideosController < ApplicationController
   end
 
   def destroy
+    @video = Video.find(params[:id])
+
+    @video.destroy
     redirect_to :controller => 'videos', :action => "index"
+  end
+
+  def change_status
+    @video = Video.find(params[:id])
+
+    case @video.status
+    when 'published'
+      @video.closed!
+    when 'closed'
+      @video.published!
+    else
+      nil
+    end
   end
 
   private

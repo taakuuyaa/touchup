@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     get 'movie' => 'videos#index'
     get 'movie/add' => 'videos#new'
     post 'movie' => 'videos#create'
-    delete 'movie' => 'videos#destroy'
+    delete 'movie/:id' => 'videos#destroy'
+
+    put 'movie/:id/status' => 'videos#change_status'
   end
 end

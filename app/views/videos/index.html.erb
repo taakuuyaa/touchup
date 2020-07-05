@@ -15,7 +15,7 @@
       </div>
       <div class="box">
         <div class="table-container">
-          <table class="table is-fullwidth is-striped is-hoverable">
+          <table class="table is-fullwidth is-hoverable">
             <thead>
             <tr>
               <th>ID</th>
@@ -36,13 +36,15 @@
                   </video>
                 </td>
                 <td class="is-vcentered">
-                  <div class="switch-area <%= v.published? ? 'is-active' : '' %>">
-                    <label for="switch1"><span></span></label>
-                    <div id="swImg"></div>
+                  <div id="status-<%= v.id %>" class="switch-area <%= v.published? ? 'is-active' : '' %>">
+                    <%= link_to("/movie/#{v.id}/status", data: {confirm: '公開状態を変更しますか？'}, method: :put, class: "", remote: true) do %>
+                      <label><span></span></label>
+                      <div class="sw-img"></div>
+                    <% end %>
                   </div>
                 </td>
                 <td class="is-vcentered">
-                  <%= link_to movie_path, :method => :delete do %>
+                  <%= link_to "/movie/#{v.id}", :method => :delete do %>
                     <p class="delete"></p>
                   <% end %>
                 </td>
@@ -57,3 +59,11 @@
     </div>
   </div>
 </section>
+
+<script>
+    $(function () {
+        $(".switch-area").on("ajax:success", function (event) {
+            $(event.currentTarget).toggleClass("is-active");
+        })
+    })
+</script>
