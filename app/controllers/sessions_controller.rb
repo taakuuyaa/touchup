@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       login_in @tenant
       redirect_to :controller => 'videos', :action => "index"
     else
-      flash.now[:error] = 'Invalid email/password combination'
+      flash.now[:error] = t('sessions.errors.login_error')
       render 'new'
     end
   end
