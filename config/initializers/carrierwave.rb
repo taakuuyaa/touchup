@@ -14,19 +14,19 @@ CarrierWave.configure do |config|
 
   case Rails.env
   when 'production'
-    config.fog_directory = 'video-upload.production.onstaff'
+    config.fog_directory = 'video-upload.production.touchup'
     # config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/dummy'
     config.storage :fog
     config.cache_storage = :fog
 
   when 'staging'
-    config.fog_directory = 'video-upload.staging.onstaff'
+    config.fog_directory = 'video-upload.staging.touchup'
     # config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/dummy'
     config.storage :fog
     config.cache_storage = :fog
 
   when 'development'
-    config.fog_directory = 'video-upload.development.onstaff'
+    config.fog_directory = 'video-upload.development.touchup'
     # config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/dev.dummy'
     config.storage :fog
     config.cache_storage = :fog
