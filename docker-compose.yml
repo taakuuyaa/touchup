@@ -13,8 +13,6 @@ services:
     build:
       context: .
       dockerfile: docker/rails/Dockerfile
-      args:
-        RAILS_ENV: development
     volumes:
       - .:/app
       - bundle:/usr/local/bundle
