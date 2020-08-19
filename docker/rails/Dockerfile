@@ -24,6 +24,12 @@ WORKDIR /app
 COPY Gemfile* /app/
 COPY . /app
 
-ENTRYPOINT ["prehook", "bundle install", "--"]
+ENTRYPOINT ["prehook", \
+                "bundle install", "--", \
+            "switch", \
+                "pwd=pwd",\
+                "migrate=rails db:migrate",\
+                "version=ruby -v", "--" \
+]
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
